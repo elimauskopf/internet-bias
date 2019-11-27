@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
     <input v-model="term" placeholder="baseball">
+      <button @click="goToDataVis(term)" type="submit"> Go! </button> 
+
     <p> Term is: {{ term }} </p>
   </div>
 </template>
@@ -9,12 +10,16 @@
 <script>
 export default {
   name: 'LandingPage',
-  props: {
-    msg: String
-  },
   data () {
     return {
-      term: ""
+      term: "",
+    }
+  }, 
+  methods: {
+    goToDataVis: function (term) {
+      if(term != '') {
+          this.$router.push({path: `/datavis/${term}`})
+      } 
     }
   }
 }

@@ -17,16 +17,30 @@ var client = new Twitter({
     bearer_token: process.env.BEARER_TOKEN
 })
 
-router.get('/', (req, res) => {
+
+router.get('/:term', (req, res) => {
   
-    client.get('search/tweets', {q: 'feminism', count: 5, include_entities: false }, function(error, tweets) {
+    let classTerms = ["Feminism", "Transgender", "Intersectionality", ]
+    let classTerm = classTerms[Math.floor(Math.random() * Math.floor(3))]
+    let tweetsFound = { classTermTweets: [], userTermTweets: [], classTerm: classTerm}
+
+    client.get('search/tweets', {q: classTerm, lang: "en", result_type: "mixed", count: 5, include_entities: false, tweet_mode: 'extended' }, function(error, tweets) {
         if(error) {
             throw(error)
         }
-        tweets = tweets.statuses.map(element => {
-            return  element.text
+        tweets = tweets.statuses.forEach(element => {
+            tweetsFound.classTermTweets.push(element.full_text)
         });
-        res.send(tweets)
+        client.get('search/tweets', {q: req.params.term, lang: "en",result_type: "mixed", count: 5, include_entities: false, tweet_mode: 'extended'}, function(error, tweets) {
+            if(error) {
+                throw(error)
+            }
+            tweets = tweets.statuses.forEach(element => {
+                tweetsFound.userTermTweets.push(element.full_text)
+            });
+            res.send(tweetsFound)
+        })
+        
     });
    
   

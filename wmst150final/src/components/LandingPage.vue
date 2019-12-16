@@ -1,10 +1,8 @@
 <template>
-  <div class="hello">
+  <section>
     <input v-model="term" placeholder="baseball">
       <button @click="goToDataVis(term)" type="submit"> Go! </button> 
-
-    <p> Term is: {{ term }} </p>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -24,4 +22,26 @@ export default {
   }
 }
 </script>
+
+<style>
+input {
+  width: 200px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+input:focus {
+  border: 3px solid green
+}
+
+button {
+  background-color: #4caf50;
+  border: 2px solid green;
+  padding: 16px 32px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
 

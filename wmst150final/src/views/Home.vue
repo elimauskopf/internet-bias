@@ -16,3 +16,9 @@ export default {
   }
 }
 </script>
+
+<style>
+body {
+background-color: #B5FFE9
+}
+</style>

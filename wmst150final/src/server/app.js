@@ -3,8 +3,12 @@ const bodyParser = require('body-parser')
 const Twitter = require('twitter')
 const app = express()
 var router = express.Router()
-const port = 4000
 require('dotenv').config({path: '../../.env'})
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+
 
 
 var jsonParser = bodyParser.json()

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "(cd src/server/ && node app.js) & vue-cli-service serve ",
-    "build": "vue-cli-service build",
+    "build": "(cd src/server/ && node app.js) & vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "engines": {

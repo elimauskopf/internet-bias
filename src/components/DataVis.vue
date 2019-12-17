@@ -56,7 +56,7 @@ export default {
     }
   },
   mounted () {
-     axios.get(`http://localhost:8080/api/${this.term}`, {
+     axios.get(`https://internet-bias-api.herokuapp.com/api/${this.term}`, {
      }).then(response => {
          this.twitterStuff = response.data
          this.classTerm = response.data.classTerm

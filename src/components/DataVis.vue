@@ -2,7 +2,7 @@
     <section>
         <div v-if="loaded">
           <div class="columnClassTerm">
-            <p id="SearchTerm"> {{ classTerm }} tweets </p>
+            <p id="SearchTerm"> Tweets with the term: {{ classTerm }}  </p>
             <ol>
               <li v-for="(tweet,index) in twitterStuff.classTermTweets" :key="index"> 
                 {{ tweet }}
@@ -11,7 +11,7 @@
             <p id="Score"> Score: {{ classTermScore}} </p>
           </div>
           <div class="columnUserTerm">
-            <p id="SearchTerm"> {{ term }} tweets </p>
+            <p id="SearchTerm"> Tweets with the term: {{ term }} </p>
             <ol>
               <li v-for="(tweet,index) in twitterStuff.userTermTweets" :key="index"> 
                 {{ tweet }}
@@ -27,10 +27,7 @@
 import axios from 'axios'
 import Sentiment from 'sentiment'
 var sentiment = new Sentiment();
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
+
 
 export default {
   name: 'DataVis',
@@ -59,7 +56,7 @@ export default {
     }
   },
   mounted () {
-     axios.get(`http://localhost:${port}/api/${this.term}`, {
+     axios.get(`http://localhost:8080/api/${this.term}`, {
      }).then(response => {
          this.twitterStuff = response.data
          this.classTerm = response.data.classTerm

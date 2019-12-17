@@ -20,8 +20,8 @@ var client = new Twitter({
 
 router.get('/:term', (req, res) => {
   
-    let classTerms = ["Feminism", "Transgender", "Intersectionality", ]
-    let classTerm = classTerms[Math.floor(Math.random() * Math.floor(3))]
+    let classTerms = ["Feminism", "Transgender", "Intersectionality", "Women", "Gender"]
+    let classTerm = classTerms[Math.floor(Math.random() * Math.floor(5))]
     let tweetsFound = { classTermTweets: [], userTermTweets: [], classTerm: classTerm}
 
     client.get('search/tweets', {q: classTerm, lang: "en", result_type: "mixed", count: 5, include_entities: false, tweet_mode: 'extended' }, function(error, tweets) {

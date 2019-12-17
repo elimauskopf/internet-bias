@@ -6,7 +6,7 @@ if (port == null || port == "") {
 
  module.exports = {
     devServer: {
-        proxy: `http://localhost:${port}/`,      
+        proxy: `http://localhost:8000/`,      
     }, 
     lintOnSave: false
 } 

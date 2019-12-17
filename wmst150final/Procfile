@@ -1,1 +1,1 @@
-web: (cd src/server/ && node app.js) & vue-cli-service serve 
+web: (cd wmst150final/src/server/ && node app.js)  

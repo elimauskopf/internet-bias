@@ -5,7 +5,7 @@
             <p id="SearchTerm"> Tweets with the term: {{ classTerm }}  </p>
             <ol>
               <li class = "tweets" v-for="(tweet,index) in twitterStuff.classTermTweets" :key="index"> 
-                {{ tweet }}
+                {{tweet}}
               </li>
             </ol>
             <p id="Score"> Score: {{ classTermScore}} </p>
@@ -14,7 +14,7 @@
             <p id="SearchTerm"> Tweets with the term: {{ term }} </p>
             <ol>
               <li class = "tweets" v-for="(tweet,index) in twitterStuff.userTermTweets" :key="index"> 
-                {{ tweet }}
+               {{tweet}}
               </li>
             </ol>
             <p id="Score"> Score: {{ userTermScore}} </p>

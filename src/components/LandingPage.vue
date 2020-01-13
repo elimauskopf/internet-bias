@@ -1,6 +1,6 @@
 <template>
   <section>
-    <input v-model="term" placeholder="baseball">
+    <input v-model="term" placeholder="ie: baseball">
       <button @click="goToDataVis(term)" type="submit"> Go! </button> 
   </section>
 </template>
@@ -37,9 +37,9 @@ input:focus {
 }
 
 button {
-  background-color: #4caf50;
+  background-color: #44e206;
   border: 2px solid green;
-  padding: 16px 32px;
+  padding: 10px 20px;
   margin: 4px 2px;
   cursor: pointer;
 }

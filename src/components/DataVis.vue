@@ -4,7 +4,7 @@
           <div class="columnClassTerm">
             <p id="SearchTerm"> Tweets with the term: {{ classTerm }}  </p>
             <ol>
-              <li v-for="(tweet,index) in twitterStuff.classTermTweets" :key="index"> 
+              <li class = "tweets" v-for="(tweet,index) in twitterStuff.classTermTweets" :key="index"> 
                 {{ tweet }}
               </li>
             </ol>
@@ -13,7 +13,7 @@
           <div class="columnUserTerm">
             <p id="SearchTerm"> Tweets with the term: {{ term }} </p>
             <ol>
-              <li v-for="(tweet,index) in twitterStuff.userTermTweets" :key="index"> 
+              <li class = "tweets" v-for="(tweet,index) in twitterStuff.userTermTweets" :key="index"> 
                 {{ tweet }}
               </li>
             </ol>
@@ -109,5 +109,37 @@ li {
 #Score {
   font-size: 20px;
   font-weight: bold;
+}
+
+@media all and (min-width:100px) and (max-width: 959px) {
+ .columnClassTerm {
+   width: 100%;
+   margin: auto
+}
+
+.columnUserTerm {
+  width: 100%;
+  margin: auto;
+}
+
+.tweets { 
+  font-size: 15px;
+}
+
+/* li {
+  margin: 10px 0;
+} */
+
+#SearchTerm {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+#Score {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 }
 </style>

@@ -66,6 +66,10 @@ export default {
         this.twitterStuff = response.data;
         this.classTerm = response.data.classTerm;
 
+        console.log(this.twitterStuff)
+        this.twitterStuff.userTermTweets.forEach(tweet => tweet.trim())
+        this.twitterStuff.classTermTweets.forEach(tweet => tweet.trim())
+
         this.classTermScore = this.analyze(response.data.classTermTweets);
         this.userTermScore = this.analyze(response.data.userTermTweets);
 
@@ -94,11 +98,13 @@ export default {
 .columnUserTerm {
   width: 45%;
   float: right;
-  margin-right: 25px;
+  margin-right: 25px; 
 }
+
 
 li {
   margin: 10px 0;
+  text-align: left;
 }
 
 #SearchTerm {
